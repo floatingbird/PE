@@ -1,0 +1,29 @@
+# _*_ coding: utf-8 _*_
+
+from math import log10, floor
+
+
+def one_to_six(num):
+    flag = True
+    nums1 = sorted(str(num))    # 转化为字符比较
+    for i in range(2, 7):
+        nums2 = sorted(str(num*i))
+        if nums1 == nums2:
+            continue
+        else:
+            flag = False
+            break
+    return flag
+
+
+go = False
+item = 1
+while not go:
+    if floor(log10(item)) == floor(log10(item*6)):
+        go = one_to_six(item)
+        item += 1
+    else:
+        item = 10**(floor(log10(item))+1)+1
+print(item - 1)
+
+# answer: 142857
