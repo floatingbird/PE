@@ -1,0 +1,21 @@
+# _*_ coding: utf-8 _*_
+
+from is_prime import is_prime
+
+ip, al = 0, 1  # ip--is prime, al--all numbers
+fn = [1]     # four numbers in the diagonals
+i = 2
+while True:
+    fn[0] = fn[-1] + 2*(i-1)
+    fn[1:4] = range(fn[0]+2*(i-1), fn[0]+2*(i-1)*4, 2*(i-1))
+    al += 4
+    for item in fn:
+        if is_prime(item):
+            ip += 1
+    if ip/al < 0.1:
+        break
+    i += 1
+
+print(2*i-1)
+
+# answer： 26241
