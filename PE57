@@ -1,0 +1,14 @@
+# _*_ coding: utf-8 _*_
+
+from math import floor, log10
+
+a, b = 2, 3
+count = 0
+for i in range(999):
+    a, b = a + b, 2*a + b
+    if floor(log10(b)) > floor(log10(a)):
+        count += 1
+
+print(count)
+
+# answer: 153
